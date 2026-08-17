@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      totp_accounts: {
+        Row: {
+          algorithm: string
+          created_at: string
+          digits: number
+          id: string
+          issuer: string
+          label: string
+          period: number
+          secret: string
+          user_id: string
+        }
+        Insert: {
+          algorithm?: string
+          created_at?: string
+          digits?: number
+          id?: string
+          issuer?: string
+          label?: string
+          period?: number
+          secret: string
+          user_id: string
+        }
+        Update: {
+          algorithm?: string
+          created_at?: string
+          digits?: number
+          id?: string
+          issuer?: string
+          label?: string
+          period?: number
+          secret?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
