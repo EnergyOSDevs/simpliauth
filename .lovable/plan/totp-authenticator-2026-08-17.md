@@ -5,14 +5,13 @@ A minimal web authenticator: sign in with username + password, store your accoun
 ## Screens
 
 1. **/ — Landing / Sign in**
-   - Minimal centered card: product name, one-line pitch ("Free forever. Sign in from anywhere."), sign-in / sign-up toggle.
-   - Username + password only. No email verification code step (accounts auto-confirmed).
-   - Signed-in users are redirected to the vault.
-
+  - Minimal centered card: product name, one-line pitch ("Free forever. Sign in from anywhere."), sign-in / sign-up toggle.
+  - Username + password only. No email verification code step (accounts auto-confirmed).
+  - Signed-in users are redirected to the vault.
 2. **/vault — Your codes** (protected)
-   - List of saved accounts (issuer + label), each showing the current 6-digit TOTP code, a circular countdown ring for the remaining seconds, and tap-to-copy.
-   - "Add account" dialog: issuer, label, secret key (Base32), optional digits/period. Accepts a pasted `otpauth://` URI too.
-   - Delete account, sign out.
+  - List of saved accounts (issuer + label), each showing the current 6-digit TOTP code, a circular countdown ring for the remaining seconds, and tap-to-copy.
+  - "Add account" dialog: issuer, label, secret key (Base32), optional digits/period. Accepts a pasted `otpauth://` URI too.
+  - Delete account, sign out.
 
 ## Design
 
@@ -20,7 +19,7 @@ Minimalist, system-driven light/dark (`prefers-color-scheme`), no theme toggle. 
 
 ## Technical notes
 
-- **Backend:** Lovable Cloud (auth + database).
+- **Backend:** Supabase for sign in? Not lovable cloud something else
 - **Auth:** username-only login, so the app derives a deterministic internal email from the username, with auto-confirm enabled. A `profiles` table stores the normalized username (unique) linked to the auth user, created by a signup trigger. Password reset by email is not available in this model.
 - **Data:** `totp_accounts` table (`id`, `user_id`, `issuer`, `label`, `secret`, `digits`, `period`, `created_at`) with RLS so each row is readable/writable only by its owner, plus explicit grants.
 - **TOTP:** RFC 6238 implemented client-side with the Web Crypto API (HMAC-SHA1/256, Base32 decode); codes are computed in the browser, secrets never leave it except to be stored in the user's own row. A single ticking timer drives all cards.
