@@ -63,7 +63,19 @@ export function CodeCard({
   }
 
   return (
-    <li className="group flex items-center gap-4 rounded-2xl border border-border bg-card px-4 py-4 transition-colors hover:border-foreground/20">
+    <li className="group relative animate-fade-in overflow-hidden rounded-2xl border border-border bg-card px-4 py-4 transition-all duration-200 hover:border-foreground/20 hover:shadow-sm">
+      <span className="absolute inset-x-0 top-0 h-1 bg-secondary">
+        <span
+          className={`block h-full origin-left rounded-r-full ${
+            remaining <= 5 ? "bg-destructive" : "bg-accent"
+          }`}
+          style={{
+            width: `${progress * 100}%`,
+            transition: "width 1s linear, background-color 0.3s ease",
+          }}
+        />
+      </span>
+      <div className="flex items-center gap-4">
       <button
         type="button"
         onClick={copy}
@@ -74,7 +86,7 @@ export function CodeCard({
           {account.issuer || "Account"}
           {account.label ? ` · ${account.label}` : ""}
         </span>
-        <span className="mt-1 font-mono text-2xl tracking-[0.18em] tabular-nums">
+        <span key={code} className="mt-1 animate-fade-in font-mono text-2xl tracking-[0.18em] tabular-nums">
           {error ? "——————" : code ? formatCode(code) : "······"}
         </span>
       </button>
@@ -100,7 +112,7 @@ export function CodeCard({
               fill="none"
               strokeWidth="2.5"
               strokeLinecap="round"
-              className={remaining <= 5 ? "stroke-destructive" : "stroke-accent"}
+              className={`transition-colors ${remaining <= 5 ? "stroke-destructive" : "stroke-accent"}`}
               strokeDasharray={2 * Math.PI * 15}
               strokeDashoffset={2 * Math.PI * 15 * (1 - progress)}
               style={{ transition: "stroke-dashoffset 1s linear" }}
@@ -112,7 +124,11 @@ export function CodeCard({
         </span>
 
         <span className="grid size-8 place-items-center text-muted-foreground">
-          {copied ? <Check className="size-4 text-accent" /> : <Copy className="size-4" />}
+          {copied ? (
+            <Check className="size-4 animate-scale-in text-accent" />
+          ) : (
+            <Copy className="size-4 transition-opacity group-hover:opacity-100" />
+          )}
         </span>
 
         <button
@@ -123,6 +139,7 @@ export function CodeCard({
         >
           <Trash2 className="size-4" />
         </button>
+      </div>
       </div>
     </li>
   );
