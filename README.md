@@ -1,4 +1,4 @@
-# Simple Auth
+# SimpliAuth - https://simpliauth.pages.dev
 
 A simple, modern Authenticator website based on the TOTP algorithm which has simple username and password sign-in, no verification codes required. Make it look minimalistic, light or dark mode based on your device. Free to use forever sign in from anywhere. Use secret key to generate code.
 
