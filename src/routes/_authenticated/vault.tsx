@@ -85,7 +85,7 @@ function VaultPage() {
 
   return (
     <div className="mx-auto min-h-screen w-full max-w-md px-5 py-10">
-      <header className="mb-8 flex items-start justify-between gap-4">
+      <header className="mb-8 animate-fade-in flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5">
             <img src={keyLogo} alt="SimpliAuth key logo" width={28} height={28} className="size-7" />
@@ -110,7 +110,7 @@ function VaultPage() {
       {loading ? (
         <p className="text-sm text-muted-foreground">Loading your codes…</p>
       ) : accounts.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border px-6 py-12 text-center">
+        <div className="animate-fade-in rounded-2xl border border-dashed border-border px-6 py-12 text-center">
           <p className="text-sm font-medium">No accounts yet</p>
           <p className="mx-auto mt-2 max-w-[16rem] text-xs leading-relaxed text-muted-foreground">
             Add the secret key a site gave you when you turned on two-factor authentication.
@@ -127,7 +127,7 @@ function VaultPage() {
       <button
         type="button"
         onClick={() => setAdding(true)}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+        className="hover-scale mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
       >
         <Plus className="size-4" /> Add account
       </button>
@@ -198,13 +198,13 @@ function AddAccountDialog({ onClose, onAdded }: { onClose: () => void; onAdded: 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/20 p-4 backdrop-blur-sm sm:items-center"
+      className="animate-fade-in fixed inset-0 z-50 flex items-end justify-center bg-foreground/20 p-4 backdrop-blur-sm sm:items-center"
       onClick={onClose}
     >
       <form
         onClick={(e) => e.stopPropagation()}
         onSubmit={handleSave}
-        className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-5"
+        className="animate-slide-up w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-5 sm:animate-scale-in"
       >
         <div>
           <h2 className="text-sm font-medium">Add account</h2>
