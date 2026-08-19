@@ -4,6 +4,8 @@ import { toast } from "sonner";
 
 import { supabase } from "@/integrations/supabase/client";
 import { isValidUsername, signIn, signUp } from "@/lib/auth";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import keyLogo from "@/assets/simpliauth-key.png";
 
 export const Route = createFileRoute("/")({
   ssr: false,
@@ -76,11 +78,12 @@ function AuthPage() {
     <main className="flex min-h-screen flex-col items-center justify-center px-6 py-16">
       <div className="w-full max-w-sm">
         <div className="mb-10">
-          <div className="mb-6 flex items-center gap-2.5">
-            <span className="grid size-8 place-items-center rounded-lg bg-accent text-sm font-semibold text-accent-foreground">
-              A
-            </span>
-            <span className="text-sm font-medium tracking-tight">SimpliAuth</span>
+          <div className="mb-6 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <img src={keyLogo} alt="SimpliAuth key logo" width={32} height={32} className="size-8" />
+              <span className="text-sm font-medium tracking-tight">SimpliAuth</span>
+            </div>
+            <ThemeToggle />
           </div>
           <h1 className="text-3xl leading-tight font-medium tracking-tight text-balance">
             Your two-factor codes, everywhere.

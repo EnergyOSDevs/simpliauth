@@ -7,6 +7,8 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { CodeCard, type TotpAccount } from "@/components/CodeCard";
 import { isValidSecret, normalizeSecret, parseOtpAuthUri } from "@/lib/totp";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import keyLogo from "@/assets/simpliauth-key.png";
 
 export const Route = createFileRoute("/_authenticated/vault")({
   head: () => ({
@@ -86,15 +88,15 @@ function VaultPage() {
       <header className="mb-8 flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="grid size-7 place-items-center rounded-lg bg-accent text-xs font-semibold text-accent-foreground">
-              A
-            </span>
+            <img src={keyLogo} alt="SimpliAuth key logo" width={28} height={28} className="size-7" />
             <h1 className="text-sm font-medium tracking-tight">SimpliAuth</h1>
           </div>
           {username ? (
             <p className="mt-2 text-xs text-muted-foreground">Signed in as {username}</p>
           ) : null}
         </div>
+        <div className="flex items-center gap-2">
+        <ThemeToggle />
         <button
           type="button"
           onClick={handleSignOut}
@@ -102,6 +104,7 @@ function VaultPage() {
         >
           Sign out
         </button>
+        </div>
       </header>
 
       {loading ? (
