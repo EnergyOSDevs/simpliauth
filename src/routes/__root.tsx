@@ -79,15 +79,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Authly — Free TOTP Authenticator" },
+      { title: "SimpliAuth — Free TOTP Authenticator" },
       {
         name: "description",
         content:
           "A minimal browser authenticator: save secret keys and generate 6-digit TOTP codes anywhere.",
       },
-      { name: "author", content: "Authly" },
+      { name: "author", content: "SimpliAuth" },
       { name: "color-scheme", content: "light dark" },
-      { property: "og:title", content: "Authly — Free TOTP Authenticator" },
+      { property: "og:title", content: "SimpliAuth — Free TOTP Authenticator" },
       {
         property: "og:description",
         content:
@@ -107,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const themeScript = `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(e){document.documentElement.classList.toggle('dark',e.matches)};a(m);m.addEventListener('change',a)}catch(e){}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem('simpliauth-theme')||'system';var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(){var d=s==='dark'||(s==='system'&&m.matches);document.documentElement.classList.toggle('dark',d)};a();m.addEventListener('change',a)}catch(e){}})();`;
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
