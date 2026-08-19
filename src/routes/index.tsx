@@ -76,7 +76,7 @@ function AuthPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6 py-16">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm animate-fade-in">
         <div className="mb-10">
           <div className="mb-6 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
@@ -138,7 +138,7 @@ function AuthPage() {
           <button
             type="submit"
             disabled={busy}
-            className="w-full rounded-xl bg-foreground py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="hover-scale w-full rounded-xl bg-foreground py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
           </button>
