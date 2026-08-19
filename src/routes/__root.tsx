@@ -107,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const themeScript = `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(e){document.documentElement.classList.toggle('dark',e.matches)};a(m);m.addEventListener('change',a)}catch(e){}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem('simpliauth-theme')||'system';var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(){var d=s==='dark'||(s==='system'&&m.matches);document.documentElement.classList.toggle('dark',d)};a();m.addEventListener('change',a)}catch(e){}})();`;
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
