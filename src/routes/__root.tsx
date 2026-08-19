@@ -79,15 +79,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Authly — Free TOTP Authenticator" },
+      { title: "SimpliAuth — Free TOTP Authenticator" },
       {
         name: "description",
         content:
           "A minimal browser authenticator: save secret keys and generate 6-digit TOTP codes anywhere.",
       },
-      { name: "author", content: "Authly" },
+      { name: "author", content: "SimpliAuth" },
       { name: "color-scheme", content: "light dark" },
-      { property: "og:title", content: "Authly — Free TOTP Authenticator" },
+      { property: "og:title", content: "SimpliAuth — Free TOTP Authenticator" },
       {
         property: "og:description",
         content:

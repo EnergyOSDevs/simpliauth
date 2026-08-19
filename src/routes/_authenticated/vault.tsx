@@ -11,15 +11,15 @@ import { isValidSecret, normalizeSecret, parseOtpAuthUri } from "@/lib/totp";
 export const Route = createFileRoute("/_authenticated/vault")({
   head: () => ({
     meta: [
-      { title: "Your codes — Authly Authenticator" },
+      { title: "Your codes — SimpliAuth Authenticator" },
       {
         name: "description",
-        content: "Live 6-digit two-factor codes for every secret key you've saved to Authly.",
+        content: "Live 6-digit two-factor codes for every secret key you've saved to SimpliAuth.",
       },
-      { property: "og:title", content: "Your codes — Authly Authenticator" },
+      { property: "og:title", content: "Your codes — SimpliAuth Authenticator" },
       {
         property: "og:description",
-        content: "Live 6-digit two-factor codes for every secret key you've saved to Authly.",
+        content: "Live 6-digit two-factor codes for every secret key you've saved to SimpliAuth.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -89,7 +89,7 @@ function VaultPage() {
             <span className="grid size-7 place-items-center rounded-lg bg-accent text-xs font-semibold text-accent-foreground">
               A
             </span>
-            <h1 className="text-sm font-medium tracking-tight">Authly</h1>
+            <h1 className="text-sm font-medium tracking-tight">SimpliAuth</h1>
           </div>
           {username ? (
             <p className="mt-2 text-xs text-muted-foreground">Signed in as {username}</p>

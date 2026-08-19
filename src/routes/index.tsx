@@ -9,13 +9,13 @@ export const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Authly — Free TOTP Authenticator in Your Browser" },
+      { title: "SimpliAuth — Free TOTP Authenticator in Your Browser" },
       {
         name: "description",
         content:
           "Store your two-factor secret keys and generate 6-digit TOTP codes from any device. Username and password sign-in, free forever.",
       },
-      { property: "og:title", content: "Authly — Free TOTP Authenticator" },
+      { property: "og:title", content: "SimpliAuth — Free TOTP Authenticator" },
       {
         property: "og:description",
         content:
@@ -80,7 +80,7 @@ function AuthPage() {
             <span className="grid size-8 place-items-center rounded-lg bg-accent text-sm font-semibold text-accent-foreground">
               A
             </span>
-            <span className="text-sm font-medium tracking-tight">Authly</span>
+            <span className="text-sm font-medium tracking-tight">SimpliAuth</span>
           </div>
           <h1 className="text-3xl leading-tight font-medium tracking-tight text-balance">
             Your two-factor codes, everywhere.
